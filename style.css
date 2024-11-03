@@ -16,11 +16,18 @@ body {
     background-color: #ccc;
     border-radius: 5px;
     cursor: pointer;
+    transform: rotateY(0deg);
+    transition: all 0.3s;
 }
 
 .card .card-content {
     opacity: 0;
     max-width: 100%;
+    transition: all 0.3s;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
 }
 
 .card.flip .card-content {

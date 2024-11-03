@@ -50,15 +50,23 @@ function onCardClick(e){
                 // on a trouvé une paire
                 selectedCards[0].classList.add("matched");
                 selectedCards[1].classList.add("matched");
-                selectedCards[0].removeEventListener('click', onCardClick)
-                selectedCards[1].removeEventListener('click', onCardClick)
-            }else {
+                selectedCards[0].removeEventListener('click', onCardClick);
+                selectedCards[1].removeEventListener('click', onCardClick);
+
+                const allCardsNotMatched = document.querySelectorAll('.card:not(.matched');
+                console.log(allCardsNotMatched.length);
+                
+                if(allCardsNotMatched.length == 0){
+                    alert("Bravo, vous avez gagné");
+                }
+            }
+            else {
                 // on s'est trompé
                 selectedCards[0].classList.remove("flip");
                 selectedCards[1].classList.remove("flip");
             }
             selectedCards = [];
-        }, 1000);
+        }, 1000); //1 seconde
     }
 }
 
